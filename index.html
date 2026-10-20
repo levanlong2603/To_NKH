@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#8ccfff">
+    <title>To_NKH</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./asset/style.css">
+</head>
+
+<body>
+    <!-- Hình vẽ dùng lại nhiều chỗ: hoa anh đào, chiếc lá, cành hoa -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+            <symbol id="sakura" viewBox="0 0 100 100">
+                <g fill="currentColor">
+                    <path id="sakura-petal" d="M50 50 C34 44 31 22 43 12 Q47 15 50 20 Q53 15 57 12 C69 22 66 44 50 50 Z" />
+                    <use href="#sakura-petal" transform="rotate(72 50 50)" />
+                    <use href="#sakura-petal" transform="rotate(144 50 50)" />
+                    <use href="#sakura-petal" transform="rotate(216 50 50)" />
+                    <use href="#sakura-petal" transform="rotate(288 50 50)" />
+                </g>
+                <circle cx="50" cy="50" r="7" fill="var(--sakura-core, #e2648f)" />
+            </symbol>
+
+            <symbol id="leaf" viewBox="0 0 40 20">
+                <path d="M1 10 C9 1 27 0 39 10 C27 20 9 19 1 10 Z" fill="currentColor" />
+                <path d="M3 10 L35 10 M12 10 L17 5 M20 10 L25 5 M12 10 L17 15 M20 10 L25 15" stroke="rgba(255,255,255,.5)" stroke-width=".9" fill="none" />
+            </symbol>
+
+            <symbol id="sprig" viewBox="0 0 170 90" overflow="visible">
+                <path d="M4 84 C40 72 74 54 104 38 S146 16 166 8" fill="none" stroke="#5a3a42" stroke-width="3.4" stroke-linecap="round" />
+                <path d="M66 57 C70 44 80 34 94 30" fill="none" stroke="#5a3a42" stroke-width="1.9" stroke-linecap="round" />
+                <path d="M122 27 C128 35 136 41 148 43" fill="none" stroke="#5a3a42" stroke-width="1.6" stroke-linecap="round" />
+                <use href="#leaf" x="16" y="56" width="34" height="17" transform="rotate(-38 33 64)" style="color:#7cc36b" />
+                <use href="#leaf" x="98" y="40" width="30" height="15" transform="rotate(28 113 47)" style="color:#c98a6a" />
+                <use href="#leaf" x="140" y="34" width="24" height="12" transform="rotate(12 152 40)" style="color:#9fd47a" />
+                <use href="#sakura" x="38" y="44" width="30" height="30" style="color:#ffd3e2" />
+                <use href="#sakura" x="82" y="12" width="38" height="38" style="color:#ffc2d6" />
+                <use href="#sakura" x="132" y="-8" width="28" height="28" style="color:#ffffff" />
+                <use href="#sakura" x="70" y="22" width="18" height="18" style="color:#fff0f5" />
+                <ellipse cx="164" cy="6" rx="3.6" ry="5.4" fill="#f58fb2" transform="rotate(40 164 6)" />
+                <ellipse cx="96" cy="30" rx="3" ry="4.6" fill="#ef7aa5" transform="rotate(-30 96 30)" />
+            </symbol>
+        </defs>
+    </svg>
+
+    <!-- Bầu trời -->
+    <div class="sky" aria-hidden="true">
+        <div class="sun"></div>
+        <div class="cloud c1"></div>
+        <div class="cloud c2"></div>
+        <div class="cloud c3"></div>
+        <div class="cloud c4"></div>
+        <div class="mist"></div>
+    </div>
+
+    <!-- Cây hoa anh đào + cánh hoa rơi -->
+    <canvas id="scene" aria-label="Cây hoa anh đào"></canvas>
+
+    <!-- Lá thư -->
+    <article id="letter" class="letter" aria-label="Lá thư 20/10">
+        <svg class="corner corner-tl" viewBox="0 0 170 90" aria-hidden="true"><use href="#sprig" /></svg>
+        <svg class="corner corner-br" viewBox="0 0 170 90" aria-hidden="true"><use href="#sprig" /></svg>
+
+        <div class="paper">
+            <div class="stamp" aria-hidden="true">
+                <div class="stamp-inner">
+                    <svg><use href="#sakura" /></svg>
+                    <span>20/10</span>
+                </div>
+            </div>
+
+            <header class="paper-head">
+                <h1 class="title" data-type>20/10 vui vẻ nha cô gái 🌹🌻✨</h1>
+                <div class="divider" aria-hidden="true">
+                    <svg><use href="#leaf" style="color:#9fd47a" /></svg>
+                    <svg><use href="#sakura" /></svg>
+                    <svg class="flip"><use href="#leaf" style="color:#9fd47a" /></svg>
+                </div>
+            </header>
+
+            <div class="paper-body">
+                <p data-type>Chúc em 20/10 thật vui vẻ và hạnh phúc nhéee 🌷💗 Mong em lúc nào cũng xinh xắn, rạng rỡ, luôn giữ nụ cười trên môi và gặp thật nhiều điều tốt đẹp trong cuộc sống. Chúc em luôn được yêu thương, quan tâm và trân trọng, những điều em mong muốn đều sẽ dần trở thành hiện thực.</p>
+                <p data-type>Nhớ chăm sóc bản thân thật tốt, ăn uống đầy đủ và đừng để mình mệt mỏi quá nha. Mong hôm nay em sẽ nhận được thật nhiều niềm vui, và hy vọng lời chúc nhỏ này cũng có thể khiến em mỉm cười thêm một chút.</p>
+                <p data-type>Chúc em không chỉ có một ngày 20/10 thật đặc biệt mà cả những ngày sau này cũng luôn bình yên và hạnh phúc nhéee 🥰🌸❤️</p>
+                <p class="sign" data-type>From Nguoi La hoi quen 😉</p>
+
+                <div class="flourish" aria-hidden="true">
+                    <svg viewBox="0 0 170 90"><use href="#sprig" /></svg>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Lớp cánh hoa bay phía trước lá thư -->
+    <canvas id="fx" aria-hidden="true"></canvas>
+
+    <button id="music-toggle" class="music" type="button" aria-label="Bật / tắt nhạc">
+        <span></span><span></span><span></span><span></span>
+    </button>
+
+    <!-- Nhạc: phát từ YouTube (ẩn); nếu YouTube không chạy được thì dùng file mp3 -->
+    <div class="yt-wrap" aria-hidden="true"><div id="yt-player"></div></div>
+    <audio id="bgm" src="music/nhac.mp3" preload="none" loop></audio>
+
+    <script src="./asset/script.js"></script>
+</body>
+</html>
