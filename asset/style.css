@@ -389,7 +389,8 @@ body {
   z-index: -1;
   width: 200px;
   height: 200px;
-  opacity: 0.01;
+  opacity: 0;
+  clip-path: inset(50%);
   pointer-events: none;
   overflow: hidden;
 }
